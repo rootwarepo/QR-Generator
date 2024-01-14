@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="script" href="script.js">
+  <title>QR Kod Oluşturucu</title>
+</head>
+<body>
+  <div id="container">
+    <h1>QR Kod Oluşturucu</h1>
+    <input type="text" id="urlInput" placeholder="Site Adresini Girin">
+    <button onclick="generateQR()">QR Oluştur</button>
+    <center><div id="qr-code"></div></center>
+  </div>
+
+  <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+  <script>
+    function generateQR() {
+      var urlInput = document.getElementById('urlInput').value;
+      var qrCodeContainer = document.getElementById('qr-code');
+      qrCodeContainer.innerHTML = '';
+
+      var qrcode = new QRCode(qrCodeContainer, {
+        text: urlInput,
+        width: 128,
+        height: 128
+      });
+    }
+  </script>
+</body>
+</html>
